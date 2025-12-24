@@ -1,40 +1,40 @@
-# AlphaWeave
-### Real-Time Market Intelligence using Dynamic Graph Algorithms
+# AlphaWeave  
+### Dynamic Graph-Based Market Intelligence System
 
 ## Overview
 
-AlphaWeave is an algorithmic market intelligence system that models financial markets as a **dynamic graph** and applies classical **data structures and algorithms (DSA)** to detect emerging signals, regime shifts, and asset influence patterns.
+AlphaWeave is a **data-structure-driven market intelligence system** that models financial markets as a **dynamic weighted graph** and applies classical **DSA and graph algorithms** to detect emerging influence patterns, regime shifts, and structurally important assets.
 
-Unlike traditional trading bots or price prediction systems, AlphaWeave focuses on **early signal discovery** and **explainable market structure analysis**.
+Instead of predicting prices or generating buy/sell signals, AlphaWeave focuses on **early signal discovery** and **explainable structural insights**, making it suitable for research-oriented and system-level analysis.
 
 ---
 
 ## Motivation
 
-Modern markets are:
+Modern financial markets are:
 - highly interconnected
-- noisy
 - non-stationary
+- noisy and unstable
 
-Most state-of-the-art approaches rely on deep learning models that:
+Most state-of-the-art solutions rely on deep learning models that:
 - act as black boxes
-- are slow to adapt
+- require heavy retraining
 - lack interpretability
 
-AlphaWeave takes a different approach:
-> Use **graph-based representations + online algorithms** to track evolving market structure in real time.
+AlphaWeave takes an alternative approach:
+> **Model the market as a living graph and use online algorithms to analyze its evolving structure in real time.**
 
 ---
 
 ## Core Idea
 
 - **Nodes** represent assets (stocks, crypto, etc.)
-- **Edges** represent relationships (correlation, co-movement, influence)
-- **Edge weights** evolve over time
-- Algorithms run continuously to detect:
-  - emerging central assets
+- **Edges** represent dynamic relationships (correlation-based co-movement)
+- **Edge weights** evolve over time using sliding-window statistics
+- Graph algorithms extract:
+  - influential nodes
   - regime clusters
-  - influence propagation
+  - ranked emerging signals
 
 ---
 
@@ -42,96 +42,108 @@ AlphaWeave takes a different approach:
 
 ```
 
-Raw Market Data
+Raw Price Data
 ↓
-Feature Extraction (Returns, Volatility, Correlation)
+Return Computation
 ↓
-Dynamic Graph Construction
+Rolling Correlation (Sliding Window)
 ↓
-Online Graph Algorithms
+Dynamic Graph Update (Threshold-based)
 ↓
-Signal Interpretation Engine
+Graph Algorithms (Centrality, Top-K, Regimes)
 ↓
-Explainable Market Intelligence Output
+Explainable Signal Interpretation
 
 ````
 
 ---
 
-## 🔧 Data Structures & Algorithms Used
+## Data Structures & Algorithms Used
 
 ### Data Structures
+- Adjacency Lists (dynamic graph)
 - Arrays & Sliding Windows
-- Adjacency Lists
-- Heaps / Priority Queues
+- Heaps / Priority Queues (Top-K selection)
 - Union-Find (Disjoint Set)
-- Segment Trees / Fenwick Trees
+- Hash Maps
 
 ### Algorithms
-- Graph Traversals (BFS, DFS)
-- Shortest Path with Decay
-- Online Graph Updates
-- Greedy Allocation Strategies
-- Rolling Statistics
+- Rolling Statistics (O(n))
+- Pearson Correlation (Streaming)
+- Graph Traversals
+- Weighted Degree Centrality
+- Connected Components (Regime Detection)
 
 ---
 
 ## Signals Generated
 
-AlphaWeave outputs **interpretable signals**, such as:
+AlphaWeave outputs **interpretable structural signals**, such as:
 - Emerging influential assets
-- Sector-level regime shifts
-- Abnormal correlation spikes
-- News-driven influence propagation
+- Regime / cluster formation
+- Structural connectivity shifts
 
-No direct buy/sell decisions are made.
+Example output:
+```json
+{
+  "node": "AAPL",
+  "signal_type": "emerging_influencer",
+  "centrality_score": 1.37,
+  "regime": ["AAPL", "MSFT", "GOOGL"],
+  "explanation": "High weighted connectivity within a tightly coupled regime."
+}
+````
 
 ---
 
-## Example Output
+## Evaluation Strategy
 
-```json
-{
-  "asset": "INFY",
-  "signal_type": "emerging_central_node",
-  "confidence": 0.82,
-  "drivers": ["sector_correlation", "volume_anomaly"]
-}
-````
+Since AlphaWeave is not a price prediction model, evaluation focuses on:
+
+* **Structural stability** (resistance to noise)
+* **Interpretability**
+* **Regime consistency**
+* **Responsiveness to relationship changes**
+
+Graph snapshots and regime visualizations are used for qualitative validation.
+
+---
+
+## Visualization
+
+* Node size ∝ centrality
+* Edge width ∝ relationship strength
+* Node color ∝ detected regime
+
+This enables human-in-the-loop analysis and explainable insights.
 
 ---
 
 ## Tech Stack
 
 * Python
-* NumPy / Pandas
-* NetworkX (optional)
-* Heapq
-* Matplotlib (visualization)
+* NumPy
+* NetworkX (visualization only)
+* Matplotlib
 
 ---
 
 ## Project Status
 
-* [ ] Core graph builder
-* [ ] Online edge update module
-* [ ] Signal detection algorithms
-* [ ] Evaluation & visualization
-* [ ] Dashboard integration (optional)
+* [x] Dynamic graph construction
+* [x] Rolling statistical engine
+* [x] Graph-based signal detection
+* [x] Regime clustering
+* [x] End-to-end pipeline
+* [x] Visualization & evaluation
 
 ---
 
 ## Future Extensions
 
-* News-based influence graphs
-* Multi-market fusion
-* Portfolio allocation layer
-* Research paper-style evaluation
+* Real-time streaming updates
+* News-driven influence propagation
+* Multi-market graph fusion
 
 ---
-
-## Author
-
-Zeno Nongmaithem
-Computer Science & AI
 
