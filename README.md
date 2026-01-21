@@ -146,4 +146,6 @@ This enables human-in-the-loop analysis and explainable insights.
 * Multi-market graph fusion
 
 ---
+## Author
+Nongmaithem Zeno
 
